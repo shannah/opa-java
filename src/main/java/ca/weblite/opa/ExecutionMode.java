@@ -1,4 +1,4 @@
-package com.openprompt.opa;
+package ca.weblite.opa;
 
 /**
  * Execution modes for OPA archives as defined in the specification.

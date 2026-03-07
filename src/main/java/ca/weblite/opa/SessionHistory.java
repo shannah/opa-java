@@ -1,4 +1,4 @@
-package com.openprompt.opa;
+package ca.weblite.opa;
 
 import java.util.ArrayList;
 import java.util.Collections;

@@ -1,4 +1,4 @@
-package com.openprompt.opa;
+package ca.weblite.opa;
 
 /**
  * Represents an entry in the data/INDEX.json file.

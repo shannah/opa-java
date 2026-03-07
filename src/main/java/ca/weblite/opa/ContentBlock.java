@@ -1,4 +1,4 @@
-package com.openprompt.opa;
+package ca.weblite.opa;
 
 import java.util.LinkedHashMap;
 import java.util.Map;

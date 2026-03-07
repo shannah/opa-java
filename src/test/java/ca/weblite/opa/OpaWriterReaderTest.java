@@ -1,4 +1,4 @@
-package com.openprompt.opa;
+package ca.weblite.opa;
 
 import org.junit.Rule;
 import org.junit.Test;

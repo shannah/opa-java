@@ -1,4 +1,4 @@
-package com.openprompt.opa;
+package ca.weblite.opa;
 
 /**
  * Exception thrown when an OPA archive is invalid or cannot be processed.
