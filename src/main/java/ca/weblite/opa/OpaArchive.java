@@ -12,14 +12,21 @@ public class OpaArchive {
     private final SessionHistory sessionHistory;
     private final DataIndex dataIndex;
     private final Map<String, byte[]> entries;
+    private final boolean signed;
 
     OpaArchive(OpaManifest manifest, String prompt, SessionHistory sessionHistory,
                DataIndex dataIndex, Map<String, byte[]> entries) {
+        this(manifest, prompt, sessionHistory, dataIndex, entries, false);
+    }
+
+    OpaArchive(OpaManifest manifest, String prompt, SessionHistory sessionHistory,
+               DataIndex dataIndex, Map<String, byte[]> entries, boolean signed) {
         this.manifest = manifest;
         this.prompt = prompt;
         this.sessionHistory = sessionHistory;
         this.dataIndex = dataIndex;
         this.entries = entries;
+        this.signed = signed;
     }
 
     public OpaManifest getManifest() {
@@ -36,6 +43,13 @@ public class OpaArchive {
 
     public DataIndex getDataIndex() {
         return dataIndex;
+    }
+
+    /**
+     * Returns true if the archive contains digital signature files.
+     */
+    public boolean isSigned() {
+        return signed;
     }
 
     /**

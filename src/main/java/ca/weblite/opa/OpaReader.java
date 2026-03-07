@@ -98,7 +98,8 @@ public class OpaReader {
             }
         }
 
-        return new OpaArchive(manifest, prompt, sessionHistory, dataIndex, allEntries);
+        boolean signed = allEntries.containsKey(OpaSigner.SF_PATH);
+        return new OpaArchive(manifest, prompt, sessionHistory, dataIndex, allEntries, signed);
     }
 
     private static OpaArchive readFromStream(InputStream in) throws IOException, OpaException {
@@ -147,7 +148,8 @@ public class OpaReader {
             dataIndex = DataIndexJson.parse(new ByteArrayInputStream(indexBytes));
         }
 
-        return new OpaArchive(manifest, prompt, sessionHistory, dataIndex, allEntries);
+        boolean signed = allEntries.containsKey(OpaSigner.SF_PATH);
+        return new OpaArchive(manifest, prompt, sessionHistory, dataIndex, allEntries, signed);
     }
 
     private static void validateManifest(OpaManifest manifest) throws OpaException {
