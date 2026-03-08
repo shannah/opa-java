@@ -7,7 +7,6 @@ import java.security.NoSuchAlgorithmException;
 import java.security.PublicKey;
 import java.security.Signature;
 import java.security.cert.Certificate;
-import java.security.cert.CertificateFactory;
 import java.util.*;
 import java.util.zip.*;
 
@@ -218,43 +217,13 @@ public class OpaVerifier {
     }
 
     private BlockFile parseBlockFile(byte[] data) throws Exception {
-        DataInputStream dis = new DataInputStream(new ByteArrayInputStream(data));
-        int magic = dis.readInt();
-        if (magic != 0x4F504153) {
-            throw new OpaSignatureException("Invalid signature block magic");
-        }
-        int version = dis.readInt();
-        if (version != 1) {
-            throw new OpaSignatureException("Unsupported signature block version: " + version);
-        }
-
-        // Algorithm
-        int algLen = dis.readInt();
-        byte[] algBytes = new byte[algLen];
-        dis.readFully(algBytes);
-        String algorithm = new String(algBytes, StandardCharsets.UTF_8);
-
-        // Signature
-        int sigLen = dis.readInt();
-        byte[] signature = new byte[sigLen];
-        dis.readFully(signature);
-
-        // Certificates
-        int certCount = dis.readInt();
-        Certificate[] certs = new Certificate[certCount];
-        CertificateFactory cf = CertificateFactory.getInstance("X.509");
-        for (int i = 0; i < certCount; i++) {
-            int certLen = dis.readInt();
-            byte[] certBytes = new byte[certLen];
-            dis.readFully(certBytes);
-            certs[i] = cf.generateCertificate(new ByteArrayInputStream(certBytes));
-        }
+        Pkcs7.ParsedSignedData parsed = Pkcs7.parseSignedData(data);
 
         BlockFile block = new BlockFile();
-        block.algorithm = algorithm;
-        block.signature = signature;
-        block.certificates = certs;
-        block.signerPublicKey = certs[0].getPublicKey();
+        block.algorithm = parsed.signatureAlgorithm;
+        block.signature = parsed.signature;
+        block.certificates = parsed.certificates;
+        block.signerPublicKey = parsed.signerPublicKey;
         return block;
     }
 

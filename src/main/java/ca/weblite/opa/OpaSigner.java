@@ -211,36 +211,7 @@ public class OpaSigner {
         sig.update(sfBytes);
         byte[] signatureBytes = sig.sign();
 
-        // Encode as a simple block: certificate(s) + signature
-        // Using a straightforward format: length-prefixed sections
-        ByteArrayOutputStream baos = new ByteArrayOutputStream();
-        try {
-            DataOutputStream dos = new DataOutputStream(baos);
-            // Magic header
-            dos.writeInt(0x4F504153); // "OPAS"
-            dos.writeInt(1); // version
-
-            // Signature algorithm
-            byte[] algBytes = signatureAlgorithm.getBytes(StandardCharsets.UTF_8);
-            dos.writeInt(algBytes.length);
-            dos.write(algBytes);
-
-            // Signature
-            dos.writeInt(signatureBytes.length);
-            dos.write(signatureBytes);
-
-            // Certificate chain
-            dos.writeInt(certChain.length);
-            for (Certificate cert : certChain) {
-                byte[] encoded = cert.getEncoded();
-                dos.writeInt(encoded.length);
-                dos.write(encoded);
-            }
-            dos.flush();
-        } catch (IOException e) {
-            throw new SecurityException("Failed to encode signature block", e);
-        }
-        return baos.toByteArray();
+        return Pkcs7.buildSignedData(signatureAlgorithm, signatureBytes, certChain);
     }
 
     private String blockFilePath() {
