@@ -1,0 +1,19 @@
+--- a/src/main/java/com/example/UserService.java
++++ b/src/main/java/com/example/UserService.java
+@@ -22,6 +22,15 @@ public class UserService {
+         return userRepository.findById(id);
+     }
+
++    public User findByEmail(String email) {
++        String query = "SELECT * FROM users WHERE email = '" + email + "'";
++        return jdbcTemplate.queryForObject(query, new UserRowMapper());
++    }
++
++    public void deleteUser(long id) {
++        userRepository.deleteById(id);
++        log.info("Deleted user {}", id);
++    }
++
+     public List<User> listAll() {
+         return userRepository.findAll();
+     }
