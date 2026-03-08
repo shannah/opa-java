@@ -43,7 +43,6 @@ jobs:
           server-id: central
           server-username: MAVEN_CENTRAL_USERNAME
           server-password: MAVEN_CENTRAL_PASSWORD
-          gpg-passphrase: ${{ secrets.GPG_PASSPHRASE }}
           overwrite-settings: true
 
       - name: Import GPG key
@@ -62,7 +61,7 @@ jobs:
             -ntp
 
       - name: Build and Deploy
-        run: mvn -B clean deploy --batch-mode -ntp -Psign-artifacts
+        run: mvn -B clean deploy --batch-mode -ntp -Psign-artifacts -Dgpg.passphrase="$GPG_PASSPHRASE"
         env:
           GPG_PASSPHRASE: ${{ secrets.GPG_PASSPHRASE }}
           MAVEN_CENTRAL_USERNAME: ${{ secrets.MAVEN_CENTRAL_USERNAME }}
