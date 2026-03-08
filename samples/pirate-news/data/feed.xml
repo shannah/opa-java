@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+  <channel>
+    <title>Top Headlines - Sample Feed</title>
+    <link>https://news.example.com</link>
+    <description>Sample headline news feed for OPA testing</description>
+    <lastBuildDate>Sat, 08 Mar 2026 12:00:00 GMT</lastBuildDate>
+
+    <item>
+      <title>OpenAI announces GPT-5 with real-time video understanding</title>
+      <link>https://news.example.com/gpt5-video</link>
+      <description>OpenAI has unveiled GPT-5, featuring native real-time video comprehension that can analyze and narrate live camera feeds. Early benchmarks show a 40% improvement in multimodal reasoning tasks.</description>
+      <pubDate>Sat, 08 Mar 2026 10:30:00 GMT</pubDate>
+    </item>
+
+    <item>
+      <title>EU passes landmark Digital Infrastructure Act requiring open-source audits</title>
+      <link>https://news.example.com/eu-digital-act</link>
+      <description>The European Parliament has approved the Digital Infrastructure Act, mandating that all critical infrastructure software undergo independent open-source security audits within 18 months.</description>
+      <pubDate>Sat, 08 Mar 2026 09:45:00 GMT</pubDate>
+    </item>
+
+    <item>
+      <title>SpaceX Starship completes first orbital cargo delivery</title>
+      <link>https://news.example.com/starship-cargo</link>
+      <description>SpaceX's Starship rocket successfully delivered 150 tonnes of supplies to orbit in its first commercial cargo mission, marking a new era for heavy-lift space logistics.</description>
+      <pubDate>Sat, 08 Mar 2026 09:00:00 GMT</pubDate>
+    </item>
+
+    <item>
+      <title>Anthropic publishes Circuit Tracing research revealing how Claude reasons</title>
+      <link>https://news.example.com/anthropic-circuits</link>
+      <description>Anthropic researchers have published a breakthrough paper on mechanistic interpretability, tracing complete reasoning circuits inside Claude and showing how the model decomposes multi-step math problems into verifiable sub-steps.</description>
+      <pubDate>Sat, 08 Mar 2026 08:15:00 GMT</pubDate>
+    </item>
+
+    <item>
+      <title>Global coffee prices hit record high as climate disrupts Brazilian harvest</title>
+      <link>https://news.example.com/coffee-prices</link>
+      <description>Arabica coffee futures have surged to an all-time high after severe drought and unseasonal frost devastated crops in Brazil's Minas Gerais region, the world's largest coffee-producing area.</description>
+      <pubDate>Sat, 08 Mar 2026 07:30:00 GMT</pubDate>
+    </item>
+
+    <item>
+      <title>NVIDIA unveils Blackwell Ultra GPU with 256 GB HBM4 memory</title>
+      <link>https://news.example.com/nvidia-blackwell-ultra</link>
+      <description>NVIDIA has announced the Blackwell Ultra B300 GPU featuring 256 GB of HBM4 memory and 2x the inference throughput of its predecessor, targeting large-scale AI training and inference workloads.</description>
+      <pubDate>Sat, 08 Mar 2026 06:45:00 GMT</pubDate>
+    </item>
+
+    <item>
+      <title>Japan successfully tests world's first commercial fusion reactor prototype</title>
+      <link>https://news.example.com/japan-fusion</link>
+      <description>Japan's National Institutes for Quantum Science and Technology achieved sustained plasma confinement for 12 minutes in its JT-80SA reactor, the longest duration ever recorded in a commercial-scale fusion device.</description>
+      <pubDate>Sat, 08 Mar 2026 06:00:00 GMT</pubDate>
+    </item>
+
+    <item>
+      <title>Researchers demonstrate AI agent that autonomously discovers new antibiotics</title>
+      <link>https://news.example.com/ai-antibiotics</link>
+      <description>MIT researchers have created an AI agent that independently designs, synthesizes via robotic lab, and tests novel antibiotic compounds, discovering two candidates effective against drug-resistant bacteria in under 48 hours.</description>
+      <pubDate>Sat, 08 Mar 2026 05:15:00 GMT</pubDate>
+    </item>
+
+  </channel>
+</rss>
